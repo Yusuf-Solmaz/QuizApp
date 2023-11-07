@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         dao = FlagDao(this@MainActivity)
 
-        insertDatas()
+        //insertDatas()
 
         setContentView(binding.root)
     }
@@ -31,6 +31,14 @@ class MainActivity : AppCompatActivity() {
         dao.insertFlag("Estonya","estonya")
         dao.insertFlag("Rusya","rusya")
         dao.insertFlag("Bulgaristan","bulgaristan")
+        dao.insertFlag("Bosna Hersek","bosnahersek")
+        dao.insertFlag("Fransa","fransa")
+        dao.insertFlag("Hollanda","hollanda")
+        dao.insertFlag("İspanya","ispanya")
+        dao.insertFlag("Norveç","norvec")
+
+
+
     }
 
 }

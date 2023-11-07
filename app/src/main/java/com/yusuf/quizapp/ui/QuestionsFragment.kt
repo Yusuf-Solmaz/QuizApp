@@ -8,10 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.yusuf.quizapp.R
 import com.yusuf.quizapp.databinding.FragmentQuestionsBinding
 import com.yusuf.quizapp.db.Flag
 import com.yusuf.quizapp.db.FlagDao
+import kotlin.math.log
 
 class QuestionsFragment : Fragment() {
 
@@ -69,7 +72,8 @@ class QuestionsFragment : Fragment() {
             getQuestion()
         }
         else{
-            Navigation.findNavController(view).navigate(R.id.action_questionsFragment_to_resultFragment)
+            val action = QuestionsFragmentDirections.actionQuestionsFragmentToResultFragment(correctQuestionNu)
+            findNavController().navigate(action)
         }
     }
 
@@ -83,6 +87,8 @@ class QuestionsFragment : Fragment() {
         binding.imageView.setImageResource(resources.getIdentifier(correctAnswer.flag_url,"drawable","com.yusuf.quizapp"))
 
         wrongAnswers = dao.get3Flag(correctAnswer.flag_id)
+
+        Log.e("Wrong",wrongAnswers.toString())
 
         options = HashSet()
         options.add(correctAnswer)

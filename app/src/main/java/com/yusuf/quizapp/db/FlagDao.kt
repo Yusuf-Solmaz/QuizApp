@@ -44,7 +44,7 @@ class FlagDao(context: Context) {
         val flagList = ArrayList<Flag>()
         val db = dbHelper.writableDatabase
 
-        val cursor = db.rawQuery("SELECT * FROM flag WHERE id != $flag_id ORDER BY RANDOM() LIMIT 5",null)
+        val cursor = db.rawQuery("SELECT * FROM flag WHERE id != $flag_id ORDER BY RANDOM() LIMIT 3",null)
 
         while (cursor.moveToNext()){
             val flag = Flag(cursor.getInt(cursor.getColumnIndex("id"))
