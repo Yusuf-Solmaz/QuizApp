@@ -1,9 +1,26 @@
 package com.yusuf.quizapp.db
 
+import android.content.ContentValues
 import android.content.Context
 
 class FlagDao(context: Context) {
     private val dbHelper = DbHelper(context)
+
+    fun insertFlag(
+        flagName: String,
+        flagUrl:String,
+
+    ){
+        val dbx = dbHelper.writableDatabase
+        val values = ContentValues()
+
+        values.put("flag_name",flagName)
+        values.put("flag_url",flagUrl)
+
+
+        dbx.insertOrThrow("flag",null,values)
+        dbx.close()
+    }
 
     fun get5Flag():ArrayList<Flag>{
 

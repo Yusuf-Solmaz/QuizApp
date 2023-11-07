@@ -19,10 +19,6 @@
         android:name="com.yusuf.quizapp.ui.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
-        <argument
-            android:name="result"
-            app:argType="integer"
-            android:defaultValue="0" />
         <action
             android:id="@+id/action_resultFragment_to_questionsFragment"
             app:destination="@id/questionsFragment" />
